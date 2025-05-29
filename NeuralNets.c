@@ -81,8 +81,6 @@ void feedforward_1layer(double sample[785], double (*sigmoid)(double input), dou
   *  Return values:
   *    Your function must update the 'activations' array with the output value for each neuron
   * 
-  *  NOTE - You must *scale* the input to the sigmoid function using the SIGMOID_SCALE value. Otherwise
-  *         the neurons will be totally saturated and learning won't happen.
   */ 
  
     for (int b = 0;b<OUTPUTS;b++){
