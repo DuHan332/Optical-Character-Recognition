@@ -1,32 +1,3 @@
-/*
-	CSC D84 - Unit 4 - Neural Networks
-	
-	This file contains stubs for implementing your Neural Nets classifier.
-	
-	You will implement a single layer network, and 2-layer network,
-	and you will study what is the effect of having different numbers
-	of neurons in the network, as well as what happens when you used
-	different sigmoid functions.
-	    
-	Read the assignment handout carefully, then implement the
-	required functions below. Sections where you have to add code
-	are marked
-
-	**************
-	*** TO DO:
-	**************
-
-	If you add any helper functions, make sure you document them
-	properly and indicate in the report.txt file what you added.
-	
-	Have fun!
-
-	DO NOT FORGET TO 'valgrind' YOUR CODE - We will check for pointer
-	management being done properly, and for memory leaks.
-
-	Starter code: F.J.E. Feb. 16
-*/
-
 #include "NeuralNets.h"
 
 
