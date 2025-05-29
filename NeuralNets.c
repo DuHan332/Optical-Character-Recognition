@@ -24,14 +24,6 @@ int train_1layer_net(double sample[INPUTS],int label,double (*sigmoid)(double in
   * 
   */
 
-  /**********************************************************************************************************
-  *   TO DO: Implement this function! it must compute for a given input digit the network's output values
-  *          for each output neuron, and cause the weights to be updated based on the error for each neuron
-  *          and according to the backpropagation algorithm discussed in lecture.
-  *          
-  *          You will need to complete feedforward_1layer(), backprop_1layer(), and logistic() in order to
-  *          be able to complete this function.
-  ***********************************************************************************************************/
   int result = classify_1layer(sample, label, sigmoid, weights_io);
   double activations[OUTPUTS];
   feedforward_1layer(sample, sigmoid, weights_io, activations);
@@ -59,13 +51,6 @@ int classify_1layer(double sample[INPUTS],int label,double (*sigmoid)(double inp
   *   sample.
   * 
   */
-
-  /**********************************************************************************************************
-  *   TO DO: Implement this function! 
-  *          
-  *          You will need to complete feedforward_1layer(), and logistic() in order to
-  *          be able to complete this function.
-  ***********************************************************************************************************/
 
   double activations[OUTPUTS];
   feedforward_1layer(sample, sigmoid, weights_io, activations);
@@ -100,10 +85,6 @@ void feedforward_1layer(double sample[785], double (*sigmoid)(double input), dou
   *         the neurons will be totally saturated and learning won't happen.
   */ 
  
-  /*******************************************************************************************************
-   * TO DO: Complete this function. You will need to implement logistic() in order for this to work
-   *        with a logistic activation function.
-   ******************************************************************************************************/
     for (int b = 0;b<OUTPUTS;b++){
       double result = 0.0;
       for (int a = 0;a<INPUTS;a++){
@@ -159,11 +140,6 @@ void backprop_1layer(double sample[INPUTS], double activations[OUTPUTS], double 
         }
       }
     }
-   /***************************************************************************************************
-    * TO DO: Implement this function to compute and apply the weight updates for all weights in
-    *        the network. You will need to find a way to figure out which sigmoid function you're
-    *        using. Then use the procedure discussed in lecture to compute weight updates.
-    * ************************************************************************************************/
    
 }
 
@@ -191,16 +167,6 @@ int train_2layer_net(double sample[INPUTS],int label,double (*sigmoid)(double in
   * 
   */
 
-  /**********************************************************************************************************
-  *   TO DO: Implement this function! it must compute for a given input digit the activation for each
-  * 	     neuron in the hidden layer, and then use that to compute output neuron activations.
-  * 
-  *          Then it must use these activations along with the input sample's label to update the weights
-  * 	     across the whole network
-  *          
-  *          You will need to complete feedforward_2layer(), backprop_2layer(), and logistic() in order to
-  *          be able to complete this function.
-  ***********************************************************************************************************/
   int result = classify_2layer(sample, label, sigmoid, units, weights_ih, weights_ho);
   double activations[OUTPUTS];
   double h_activations[MAX_HIDDEN];
@@ -232,13 +198,6 @@ int classify_2layer(double sample[INPUTS],int label,double (*sigmoid)(double inp
   *   sample.
   * 
   */
-
-  /**********************************************************************************************************
-  *   TO DO: Implement this function! 
-  *          
-  *          You will need to complete feedforward_2layer(), and logistic() in order to
-  *          be able to complete this function.
-  ***********************************************************************************************************/
 
   double activations[OUTPUTS];
   double h_activations[MAX_HIDDEN];
@@ -276,18 +235,6 @@ void feedforward_2layer(double sample[INPUTS], double (*sigmoid)(double input), 
   *         the neurons will be totally saturated and learning won't happen.
   */ 
  
-  /*******************************************************************************************************
-   * TO DO: Complete this function. You will need to implement logistic() in order for this to work
-   *        with a logistic activation function.
-   ******************************************************************************************************/
-
-  /**************************************************************************************************
-   * Important note - scaling inputs to neurouns is critical to ensure the neurons don't saturate.
-   *                  Scaling for the hidden layer works just like it did for the 1 layer net,
-   * 		       simply scale your input by SIGMOID_SCALE. However, for the output layer,
-   *                  the scaling factor has to be adjusted by the factor
-   *                  SIGMOID_SCALE*(MAX_HIDDEN/units).
-   **************************************************************************************************/
   for (int h = 0;h<units;h++){
       double result = 0.0;
       for (int i = 0;i<INPUTS;i++){
@@ -332,12 +279,6 @@ void backprop_2layer(double sample[INPUTS],double h_activations[MAX_HIDDEN], dou
    * 		* Compute an error value given the neuron's target
    * 		* Compute the weight adjustment for each weight (the learning rate is in NeuralNets.h)
    */
-  
-   /***************************************************************************************************
-    * TO DO: Implement this function to compute and apply the weight updates for all weights in
-    *        the network. You will need to find a way to figure out which sigmoid function you're
-    *        using. Then use the procedure discussed in lecture to compute weight updates.
-    * ************************************************************************************************/
 
    if (sigmoid(0.0)==0.5) {//logistic
 
