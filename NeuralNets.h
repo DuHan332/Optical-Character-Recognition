@@ -1,19 +1,3 @@
-/*
-	CSC D84 - Unit 4 - Neural Networks
-
-	This file contains the API function headers for your assignment.
-	Please pay close attention to the function prototypes, and
-	understand what the arguments are.
-
-	Stubs for implementing each function are to be found in NeuralNets.c,
-	along with clear ** TO DO markers to let you know where to add code.
-
-	You are free to add helper functions within reason. But you must
-	provide a prototype *in this file* as well as the implementation
-	in the .c program file.
-
-	Starter by: F.J.E., Feb. 2016
-*/
 
 #ifndef __NeuralNets_header
 
