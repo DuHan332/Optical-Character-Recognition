@@ -229,8 +229,6 @@ void feedforward_2layer(double sample[INPUTS], double (*sigmoid)(double input), 
   *  Return values:
   *    Your function must update the 'activations' and 'h_activations' arrays with the output values for each neuron
   * 
-  *  NOTE - You must *scale* the input to the sigmoid function using the SIGMOID_SCALE value. Otherwise
-  *         the neurons will be totally saturated and learning won't happen.
   */ 
  
   for (int h = 0;h<units;h++){
@@ -253,11 +251,7 @@ void feedforward_2layer(double sample[INPUTS], double (*sigmoid)(double input), 
 void backprop_2layer(double sample[INPUTS],double h_activations[MAX_HIDDEN], double activations[OUTPUTS], double (*sigmoid)(double input), int label, double weights_ih[INPUTS][MAX_HIDDEN], double weights_ho[MAX_HIDDEN][OUTPUTS], int units)
 {
   /*
-   *  This function performs the core of the learning process for 2-layer networks. It performs
-   *  the weights update as discussed in lecture. Note that you require the current weights
-   *  between the hidden and output layers in order to update the weights from input to hidden,
-   *  however the backprop. algorithm would have you update that weight first. So mind the order
-   *  of updates and keep track of what you need.
+   *  This function performs the core of the learning process for 2-layer networks.
    * 
    *  Inputs:
    * 	sample - 	Input sample (see above for details)
@@ -268,14 +262,6 @@ void backprop_2layer(double sample[INPUTS],double h_activations[MAX_HIDDEN], dou
    *    weights_ih -	Network weights from inputs to hidden layer
    *    weights_ho -    Network weights from hidden layer to output layer
    *    units -         Number of units in the hidden layer
-   * 
-   *  You have to:
-   * 		* Determine the target value for each neuron
-   * 			- This depends on the type of sigmoid being used, you should think about
-   * 			  this: What should the neuron's output be if the neuron corresponds to
-   * 			  the correct label, and what should the output be for every other neuron?
-   * 		* Compute an error value given the neuron's target
-   * 		* Compute the weight adjustment for each weight (the learning rate is in NeuralNets.h)
    */
 
    if (sigmoid(0.0)==0.5) {//logistic
